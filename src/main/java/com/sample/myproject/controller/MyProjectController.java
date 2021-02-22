@@ -34,24 +34,6 @@ public class MyProjectController {
 	@Autowired
 	UserDetailsService userDetailsService;
 
-	@GetMapping(path = "/getUserData/{employerId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<EmployerDetails> getUserData (
-			@PathVariable(value = "employerId", required = true) long employerId) {
-
-		EmployerDetails emplDetails = new EmployerDetails();
-
-		if (employerId == 5) {
-			emplDetails.setCity("Missouri");
-			emplDetails.setCountry("United States");
-			emplDetails.setName("Sharath");
-			emplDetails.setPostalCode("61701");
-		} else {
-			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-		}
-
-		return new ResponseEntity<>(emplDetails, HttpStatus.OK);
-
-	}
 
 	@PostMapping(path = "/registerUser", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Integer> registerUser (
